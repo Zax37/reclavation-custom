@@ -1,0 +1,87 @@
+{
+  "pageDescription": "internetowy katalog dodatkowych poziomów do Clawa",
+  "login": "Zaloguj się",
+  "logout": "Wyloguj się",
+  "register": "Zarejestruj się",
+  "upload": "Dodaj poziom",
+  "admin": "Administruj",
+  "username": "Nazwa użytkownika",
+  "email": "E-mail",
+  "password": "Hasło",
+  "role": "Funkcja",
+  "search": "Szukaj po nazwie lub autorze...",
+  "sort": {
+    "base": "Sortuj po",
+    "types": [
+      "nazwach",
+      "autorach",
+      "ocenach",
+      "pomidorach",
+      "dacie dodania",
+      "rozmiarach"
+    ],
+    "orders": [
+      "rosnąco",
+      "malejąco"
+    ]
+  },
+  "filter": "Filtry: ",
+  "apply": "Zastosuj",
+  "save": "Zapisz zmiany",
+  "levels": "Poziomy",
+  "authors": "Autorzy",
+  "empty_levels_list": "Nie odnaleziono żadnych poziomów.",
+  "created_on": "Utworzony ",
+  "uploaded_on": "Dodany ",
+  "by": " przez ",
+  "fileSize": "Rozmiar pliku: ",
+  "description": "Opis: ",
+  "none": "brak.",
+  "logged_in": "Użytkownicy aktywni w przeciągu ostatnich 5 minut: ",
+  "edit": "Edytuj",
+  "delete": "Usuń",
+  "download": "Pobierz",
+  "no_comments": "Brak komentarzy.",
+  "add_comment": "Dodaj komentarz",
+  "my_profile": "Mój profil",
+  "my_comments": "Moje komentarze",
+  "my_levels": "Moje poziomy",
+  "context": "kontekst",
+  "comments": "Komentarze",
+  "tomatoesNumber": "Ilość pomidorów: ",
+
+  "upload_form": {
+    "select_map": "Wybierz plik mapy",
+    "select_thumb": "Wybierz miniaturkę"
+  },
+
+  "success": {
+    "logged_in":"Pomyślnie zalogowano na konto.",
+    "logged_out":"Zostałeś pomyślnie wylogowany.",
+    "account_created":"Konto zostało pomyślnie utworzone.",
+    "level_uploaded": "Poziom został pomyślnie przesłany. Możesz teraz wprowadzić jego opis.",
+    "level_removed": "Poziom został pomyślnie usunięty.",
+    "rated": "Poziom został pomyślnie oceniony. Możesz również zostawić autorowi wiadomość w sekcji komentarzy.",
+    "comment_added": "Pomyślnie dodano komentarz.",
+    "comment_removed": "Pomyślnie usunięto komentarz.",
+    "comment_updated": "Pomyślnie zaktualizowano komentarz.",
+    "description_updated": "Pomyślnie zaktualizowano opis poziomu."
+  },
+
+  "errors": {
+    "page_not_found":"Strona nie istnieje.",
+    "only_for_logged_in": "Musisz się zalogować żeby przeglądać tę stronę.",
+    "permission_denied":"Nie posiadasz odpowiednich uprawnień aby zobaczyć tę stronę.",
+    "required_fields_not_filled":"Musisz wypełnić wszystkie wymagane pola.",
+    "user_does_not_exist":"Użytkownik z podaną nazwą nie istnieje.",
+    "user_already_exists":"Użytkownik z podaną nazwą już istnieje.",
+    "already_logged_in":"Jesteś już zalogowany.",
+    "not_logged_in":"Nie jesteś zalogowany.",
+    "incorrect_password":"Podano niewłaściwe hasło.",
+    "incorrect_file_type": "Przesłany plik jest uszkodzony lub nieobsługiwanego typu.",
+    "uncompressed_map": "Dozwolone są jedynie pliki WWD z włączoną kompresją!",
+    "comment_does_not_exist": "Komentarz o podanym id nie istnieje.",
+    "level_does_not_exist": "Poziom o podanym id nie istnieje.",
+    "cant_rate_own_level": "Nie możesz ocenić poziomu, który sam dodałeś!"
+  }
+}

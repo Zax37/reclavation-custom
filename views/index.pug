@@ -1,0 +1,30 @@
+include parts.pug
++page
+    +head
+        +stylesheet("/./style/main")
+        +stylesheet("/./style/rating")
+        +stylesheet("/./style/level")
+        +stylesheet("/./style/comments")
+        +stylesheet("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.0/css/bootstrap-slider.min.css")
+        +stylesheet("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.9/css/fileinput.min.css")
+    body(ng-controller="MainController")
+        .container
+            +flash
+        +header
+            +logo(true)
+            include topPanel.pug
+        div(ng-view)
+        //-include levels.pug
+        .ribbon#footer ⓒ Zachariasz Zacharski 2017
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js")
+        script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js")
+        script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js")
+        script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.0/bootstrap-slider.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.9/js/fileinput.min.js")
+        script(src="/./js/rating.js")
+        script(src="/./js/slider.js")
+        script(src="/./js/ng-infinite-scroll.js")
+        script(src="/./js/jquery.scrollTo.min.js")
+        script(src="/./js/main.js")

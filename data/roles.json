@@ -1,0 +1,9 @@
+{
+  "unauthorized":["/", "/login", "/register", "/logout", "/user/:id"],
+  "user":["/upload", "/rate/:id", "/comment"],
+  "admin":["/admin", "/user/:id/edit", "/level/:id/edit", "/level/:id/delete", "/level/:id/comment/:cid/delete"],
+
+  "specific_user":["/user/:id/edit"],
+  "level_uploader":["/level/:id/edit", "/level/:id/delete"],
+  "comment_author":["/level/:id/comment/:cid/delete"]
+}

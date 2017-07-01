@@ -1,0 +1,15 @@
+include parts.pug
++page
+    +head
+        +stylesheet("/./style/secondary")
+    body
+        +header
+            +logo
+        form(method="post")
+            +flash
+            h2= username
+            label(for="desc")= strings.description
+            textarea(id="desc", name="description", style="width: 100%")=user.description
+            +defSubmit
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")

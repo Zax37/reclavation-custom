@@ -1,0 +1,62 @@
+mixin stylesheet(url)
+    link(rel="stylesheet", type="text/css", href=url)&attributes(attributes)
+mixin imgButton(url, img, cls)
+    a.btn(href=url, id=img)&attributes(attributes)
+        img.icon(ng-src="/./img/"+img+".png", class=cls)
+mixin defInput(id)
+    input.def-input(id=id, name=id==true?null:id)&attributes(attributes)
+mixin defSubmit(text)
+    input.def-input.btn.btn-danger(type="submit", value=text)&attributes(attributes)
+mixin fa(fa)
+    span.fa(class="fa-"+fa)
+mixin faButton(url, fa, id, string)
+    a.btn(href=url, id=id)&attributes(attributes)
+        +fa(fa)
+        =string
+mixin faInput(fa, id, attr)
+    .fa-input(class=id?id:fa)&attributes(attr)
+        +defInput(id!=null?id:fa)&attributes(attributes)
+        +fa(fa)
+        block
+mixin faSubmit(fa, text, no_name)
+    if text
+        +faInput(fa, no_name).btn.btn-danger(type="submit", value=text)&attributes(attributes)
+    else
+        input.fa.btn.btn-danger(type="submit", value=fa)&attributes(attributes)
+mixin page
+    doctype html
+    html(lang=lang, ng-app="Reclavation")
+        block
+mixin head
+    head&attributes(attributes)
+        meta(charset="utf-8")
+        title=strings.pageTitle
+        meta(description=strings.pageDescription)
+        meta(author="Zachariasz Zax37 Zacharski")
+        +stylesheet("//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+        +stylesheet("//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+        +stylesheet("https://fonts.googleapis.com/css?family=Roboto")
+        link(rel="icon", type="image/png", href="/./img/logo.png")
+        block
+mixin flash
+    .alert(ng-repeat="message in messages", class="alert-{{message.type}}")= "{{message.text}}"
+        a(href class="pull-right" ng-click="messages.splice($index, 1)")
+            i.fa.fa-window-close
+mixin header
+    div(class="container clearfix")
+        h1
+            block
+mixin logo(isHomePage)
+    a(href=isHomePage ? null : "/./")
+        img(id="logo" src="/img/logo.png")
+        div(id="pageTitle")
+            i {{strings.pageTitle}}
+            span {{strings.pageDescription}}
+mixin delButton()
+    +faButton("", "trash", null, "{{strings.delete}}")(class="btn-danger")&attributes(attributes)
+mixin editButton()
+    +faButton("", "edit", null, "{{strings.edit}}")(class="btn-danger")&attributes(attributes)
+mixin downloadButton(path)
+    +faButton(path + "/download", "download", null, "{{strings.download}}")(class="btn-danger", target="_self")
+mixin saveButton()
+    +faButton("", "save", null, "{{strings.save}}")(class="btn-danger")&attributes(attributes)

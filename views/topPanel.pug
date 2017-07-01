@@ -1,0 +1,42 @@
+.topPanel
+    span(ng-if="user")
+        span.dropdown
+            +faButton(null, "user", "user", "{{user}}")(class="btn-link", data-toggle="dropdown")
+            ul.dropdown-menu#userDropdown
+                li
+                    a(href="/./user/{{user}}") {{strings.my_profile}}
+                li
+                    a(href="/./user/{{user}}/comments") {{strings.my_comments}}
+                li
+                    a(href="/./user/{{user}}/levels") {{strings.my_levels}}
+        span.dropdown
+            +faButton(null, "upload", "upload", "{{strings.upload}}")(class="btn-link", data-toggle="dropdown")
+            ul.dropdown-menu
+                form(ng-submit="formSubmit('upload', $event)", enctype="multipart/form-data")
+                    label.control-label {{strings.upload_form.select_map}}
+                    input.file(type="file", name="map", file-input="wwd")
+                    label.control-label {{strings.upload_form.select_thumb}}
+                    input.file(type="file", name="thumbnail", file-input="bmp jpg gif png")
+                    +defSubmit
+        +faButton(null, "sign-in", "logout", "{{strings.logout}}")(class="btn-link", ng-click="formSubmit('logout')")
+    span(ng-if="!user")
+        span.dropdown
+            +faButton(null, "sign-in", "login", "{{strings.login}}")(class="btn-link", data-toggle="dropdown")
+            ul.dropdown-menu
+                form(ng-submit="formSubmit('login')")
+                    +faInput("user", "login")(placeholder="{{strings.username}}", ng-model="$parent.loginForm.login")
+                    +faInput("unlock-alt", "password")(placeholder="{{strings.password}}", type="password", ng-model="$parent.loginForm.password")
+                    +defSubmit("{{strings.login}}")
+        span.dropdown
+            +faButton(null, "user", "register", "{{strings.register}}")(class="btn-link", data-toggle="dropdown")
+            ul.dropdown-menu
+                form(ng-submit="formSubmit('register')")
+                    +faInput("user", "login")(placeholder="{{strings.username}}", ng-model="$parent.registerForm.login")
+                    +faInput("at", "email")(placeholder="{{strings.email}}", ng-model="$parent.registerForm.email")
+                    +faInput("unlock-alt", "password")(placeholder="{{strings.password}}", type="password", ng-model="$parent.registerForm.password")
+                    +defSubmit("{{strings.register}}")
+    div(style="float:right")
+        div(ng-repeat-start="l in ['pl', 'en']" ng-if="false")
+        span(ng-if="!$first" class="separator") |
+        a.lang.btn.btn-link(ng-click="getStrings(l)", ng-class="{disabled: lang==l}") {{l}}
+        div(ng-repeat-end ng-if="false")

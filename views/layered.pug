@@ -1,0 +1,21 @@
+#layered
+    .ribbon
+        .container.clearfix.layered
+            +imgButton(null, "{{n}}")(class="{{n}}", ng-repeat="n in ['claw', 'crazyhook']", ng-click="layeredFilters.gameVersion[n] = !layeredFilters.gameVersion[n]", ng-class="{active: layeredFilters.gameVersion[n]}")
+            +imgButton(null, "ci{{n}}")(class="ci{{n}}", ng-repeat="n in range(1,"+baseLevelsCount+")", ng-click="layeredFilters.baseLevel[n] = !layeredFilters.baseLevel[n]", ng-class="{active: layeredFilters.baseLevel[n]}")
+    .container.clearfix.layered-fieldset
+        +faInput("search")(placeholder="{{strings.search}}", autocomplete="off", ng-model="search", ng-model-options="{ getterSetter: true }")
+        +faInput("sort", "", {"class":"dropdown"})(ng-value="strings.sort.base+' '+strings.sort.types[(sortMethod/strings.sort.orders.length | floor)]+' '+strings.sort.orders[sortMethod%strings.sort.orders.length]", readonly)
+            ul.dropdown-menu
+                div(ng-repeat="(k1, type) in strings.sort.types")
+                    li(ng-repeat="(k2, order) in strings.sort.orders")
+                        a.btn.btn-link.pull-left(ng-click="sort($event)")= "{{strings.sort.base}} {{type}} {{order}}"
+        +faInput("filter", "", {"class":"dropdown"})(ng-value="getActiveFilters()", readonly)
+            ul.dropdown-menu
+                label {{strings.fileSize}}
+                slider(ng-model="filter.fileSize", min="lowestFileSize", max="highestFileSize", range="true", handle="square", formatter="sizeFormatter(filter.fileSize)")
+                label {{strings.tomatoesNumber}}
+                slider(ng-model="filter.tomatoes", min="minTomatoes", max="maxTomatoes", range="true", handle="square")
+        span(class="pull-right")
+            +faButton(null, "th-large", "grid")(ng-click="view = 'grid'", class="{{view=='grid'?'disabled btn-default':'btn-danger'}}")
+            +faButton(null, "th-list", "list")(ng-click="view = 'list'", class="{{view=='list'?'disabled btn-default':'btn-danger'}}")

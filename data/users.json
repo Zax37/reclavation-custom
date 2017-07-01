@@ -1,0 +1,21 @@
+{
+  "Zax37": {
+    "email": "c37zax@gmail.com",
+    "password": "ec09574d6c069212ddd744c62e9af065",
+    "role": "admin",
+    "session": "j8czhrpb1gfho48f4hqg0iozsulou1qj",
+    "description": "The Creator"
+  },
+  "StdUser": {
+    "email": "stduser@gmail.com",
+    "password": "46050a4a49c5fe602b98b8c6443fe3de",
+    "role": "user",
+    "session": "hfgjjj9hjrdatmywncqm0p3lzdsgnfyw",
+    "description": "I'm a standard user. Nothing special about me. :)"
+  },
+  "NewUser": {
+    "email": "a@a",
+    "password": "912ec803b2ce49e4a541068d495ab570",
+    "role": "user"
+  }
+}

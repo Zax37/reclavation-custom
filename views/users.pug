@@ -1,0 +1,26 @@
+include parts.pug
+include comments.pug
+.ribbon
+    .container
+        h1(style="margin: 7px 0px;")
+            a(href='/./') {{strings.levels}}
+            i(class="fa fa-long-arrow-right")
+            = "{{strings.authors}}"
+.container
+    .panel.panel-default(style="margin-bottom: 0; margin-top: 18px;")
+        .panel-body
+            table
+                tr
+                    th(ng-click="sortBy('name')")
+                        = "{{strings.username}}"
+                        i(ng-if="sort=='name'", class="fa fa-sort-", ng-class="{'fa-sort-asc': asc, 'fa-sort-desc': !asc}")
+                    th(ng-click="sortBy('email')")
+                        = "{{strings.email}}"
+                        i(ng-if="sort=='email'", class="fa fa-sort-", ng-class="{'fa-sort-asc': asc, 'fa-sort-desc': !asc}")
+                    th(ng-click="sortBy('role')")
+                        = "{{strings.role}}"
+                        i(ng-if="sort=='role'", class="fa fa-sort-", ng-class="{'fa-sort-asc': asc, 'fa-sort-desc': !asc}")
+                tr(ng-repeat="user in users | sortBy:this", ng-click="showUser(user.name)")
+                    td {{user.name}}
+                    td {{user.email}}
+                    td {{user.role}}

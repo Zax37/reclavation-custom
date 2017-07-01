@@ -1,0 +1,48 @@
+.content::before {
+  border-left: 1px solid;
+}
+
+.comments {
+  > form + span > pre { margin-top: 15px; }
+
+  .content {
+    padding-left: 2em;
+    margin: 0;
+
+    .comment {
+      padding-left: 3em;
+      border-left: 1px solid lightgray;
+      padding-bottom: 15px;
+
+      &:first-of-type {
+        padding-top: 45px;
+      }
+
+      &:last-of-type {
+        border: none;
+      }
+
+      .panel {
+        margin-top: -6px;
+        border-radius: 5px;
+
+        b {
+          font-size: large;
+        }
+      }
+
+      .comment__avatar {
+        position: absolute;
+        margin-left: -6.2em;
+        margin-top: -1.1em;
+        z-index: 1;
+
+        > img.avatar {
+          width: 4em;
+          height: 4em;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

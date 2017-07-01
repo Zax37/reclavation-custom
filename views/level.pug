@@ -1,0 +1,66 @@
+include parts.pug
+include comments.pug
+mixin levelThumb(asImg)
+    if asImg
+        img(ng-src="/screens/{{level.id+level.thumbnailExt}}")&attributes(attributes)
+    else
+        div.img(ng-background="/screens/{{level.id+level.thumbnailExt}}")
+            div
+                h2
+                    img.icon(ng-src="/img/{{level.gameVersion}}.png")
+                    img.icon(ng-src="/img/ci{{level.baseLevel}}.png")
+                    span {{level.name}}
+mixin levelDesc
+    div(style="margin-top: 20px")
+        p= "{{strings.created_on}} {{level.dateCreated | date:standardDateFormat}} {{strings.by}} {{level.author}}"
+        p= "{{strings.uploaded_on}} {{level.dateUploaded | date:standardDateFormat}} {{strings.by}}"
+            a(href="/user/{{level.uploader}}") {{level.uploader}}
+        p= "{{strings.fileSize}} {{sizeFormatter(level.size)}}"
+        p(ng-if="!levelEditMode")= "{{strings.description}} {{level.description}}"
+        p(ng-if="levelEditMode")
+            = "{{strings.description}}"
+            input(ng-model="level.description")
+        //p Map dimensions: 1200x800
+mixin levelHead
+    h2
+        block
+        div.pull-left
+            img.icon(ng-src="/img/{{level.gameVersion}}.png")
+            img.icon(ng-src="/img/ci{{level.baseLevel}}.png")
+            span {{level.name}}
+mixin level
+    .level(class="{{level.gameVersion}} ci{{level.baseLevel}}", title="{{level.name}}",
+        ng-click="showLevel(level.id)")&attributes(attributes)
+        +levelHead
+        +levelThumb
+        +levelDesc
+div#levelView(ng-if="levelView")
+    .ribbon
+        .container
+            +levelHead
+                .rating-container(value="{{level.ratings.avg}}")
+                div.pull-left
+                    a(href ng-click="goBack()") {{strings.levels}}
+                    i(class="fa fa-long-arrow-right")
+    .container.level
+        b(style="font-size: 150%") {{level.name}}
+        div(class="pull-right", id="ratings")
+            span= "🍅 {{level.ratings.tomatoes || 0}}"
+            span
+                i.fa.fa-star
+                ="{{level.ratings.stars || 0}}"
+            span
+                i.fa.fa-star-half-o
+                ="{{level.ratings.avg || 0}}"
+        +levelThumb(true)
+        +levelDesc
+        div(class="pull-right" style="clear: both; position: relative; bottom: 35px;")
+            span(ng-if="!levelEditMode")
+                span(ng-if="user==level.uploader || role == 'admin'")
+                    +editButton(ng-click="$parent.$parent.$parent.levelEditMode = true")
+                    +delButton(ng-click="deleteLevel()")
+                +downloadButton("/level/{{level.id}}")
+            span(ng-if="levelEditMode")
+                +saveButton(ng-click="applyLevelChanges()")
+    .container.comments
+        +comment-list

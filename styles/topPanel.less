@@ -1,0 +1,42 @@
+.topPanel {
+  float: right;
+  a {
+    .no-select();
+    .no-drag();
+    font-size: 15px;
+    line-height: 32px;
+    position: relative;
+    bottom: 3px;
+
+    color: black;
+    &:hover { color: @main-color-dark; }
+
+    &.lang {
+      color: lightgray;
+      text-transform: uppercase;
+      &:hover { color: gray; }
+      &.disabled { color: black; opacity: 1; }
+      &:last-child { padding-right: 0; }
+    }
+
+    span { margin-right: 5px; margin-left: 24px; }
+    &:first-of-type span { margin-left: 0; }
+    span.fa-user { font-size: 15px; }
+
+    &#register,
+    &#logout {
+      margin-right: 60px;
+      @media (max-width: 991px) {
+        margin-right: 10px;
+        > span { margin-left: 0; }
+      }
+    }
+  }
+
+  .separator {
+    font-size: 17px;
+    color: lightgray;
+    position: relative;
+    bottom: 8px;
+  }
+}

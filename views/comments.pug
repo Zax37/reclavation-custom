@@ -1,0 +1,35 @@
+mixin comment(userContext)
+    .comment&attributes(attributes)
+        div(class="panel panel-default")
+            div(class="panel-body")
+                .comment__avatar
+                    img.avatar(ng-src="http://www.gravatar.com/avatar/{{comment.avatar}}")
+                .text-muted.pull-right {{comment.date | date:standardDateFormat}}
+                b {{comment.author}}
+                if(userContext)
+                    a(href="{{comment.targetURL}}") ({{strings.context}})
+                div(ng-if="$parent.commentEditMode != comment.id") {{comment.text}}
+                div(ng-if="$parent.commentEditMode == comment.id")
+                    input(id="newCommentText", value="{{comment.text}}")
+                div(class="pull-right")
+                    span(ng-if="!$parent.commentEditMode && (user==comment.author || role == 'admin')")
+                        +editButton(ng-click="$parent.$parent.commentEditMode = comment.id")
+                        +delButton(ng-click="deleteComment(comment.id)")
+                    span(ng-if="commentEditMode==comment.id")
+                        +saveButton(ng-click="applyCommentChanges(comment.id)")
+mixin comment-list(userContext)
+    if(!userContext)
+        form(method="post", ng-submit="addComment($event)", ng-if="user")
+            div(class="input-group")
+                input(type="hidden", name="index", value="{{targetId}}")
+                input(id="com_text" class="form-control", name="text", placeholder="{{strings.add_comment}}", type="text")
+                span(class="input-group-addon")
+                    +faSubmit('\uf044')(class="btn-default")
+    center(ng-if="!comments")
+        img(src="/img/loading.gif")
+    span(ng-if="comments")
+        div.content(ng-if="comments.length")
+            p.pull-right(ng-if="(pagesCount = (commentsCount/commentsPerPage | ceil)) > 1")
+                a.btn(href="", ng-repeat="n in range(1,pagesCount)", ng-class="{disabled: n==commentsPage}", ng-click="goToPage(n)") {{n}}
+            +comment(userContext)(ng-repeat="comment in comments")
+        pre(ng-if="!comments.length") {{strings.no_comments}}

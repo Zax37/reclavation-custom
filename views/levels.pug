@@ -1,0 +1,12 @@
+include level.pug
+include layered.pug
+.container.levels(class="{{view}}", infinite-scroll='loadMore()', infinite-scroll-disabled='levelsBeingLoaded', infinite-scroll-distance='0')
+    +level(id="{{level.id}}" ng-repeat="level in (filteredLevels = (levels | layered:this:search)) | slice:0:shownLevelsCount", ng-animate="{enter: 'levelEnter'}")
+    b(ng-if="levelsBeingLoaded", id="levelsLoading")
+        center(id="loading")
+            img(src="/img/loading.gif")
+        +levelThumb(true)(onload="currentView.imageLoaded();", ng-repeat="level in filteredLevels | slice:shownLevelsCount:levelsToLoadCount")
+    center(ng-if="levels.length==0")
+        img(src="/img/loading.gif")
+    pre(ng-if="filteredLevels.length==0")
+        div(ng-if="levels.length>0") {{strings.empty_levels_list}}

@@ -1,0 +1,87 @@
+{
+  "pageDescription": "online database of user-created custom levels for Claw",
+  "login": "Login",
+  "logout": "Logout",
+  "register": "Register",
+  "upload": "Upload level",
+  "admin": "Administrate",
+  "username": "Username",
+  "email": "E-mail",
+  "password": "Password",
+  "role": "Role",
+  "search": "Search by name or author...",
+  "sort": {
+    "base": "Sort by",
+    "types": [
+      "names",
+      "authors",
+      "rating",
+      "tomatoes",
+      "upload date",
+      "sizes"
+    ],
+    "orders": [
+      "ascending",
+      "descending"
+    ]
+  },
+  "filter": "Filters: ",
+  "apply": "Apply",
+  "save": "Save changes",
+  "levels": "Levels",
+  "authors": "Authors",
+  "empty_levels_list": "No levels were found.",
+  "created_on": "Created on ",
+  "uploaded_on": "Uploaded on ",
+  "by": " by ",
+  "fileSize": "File size: ",
+  "description": "Description: ",
+  "none": "none.",
+  "logged_in": "Users active within last 5 minutes: ",
+  "edit": "Edit",
+  "delete": "Delete",
+  "download": "Download",
+  "no_comments": "No comments.",
+  "add_comment": "Add a comment",
+  "my_profile": "My profile",
+  "my_comments": "My comments",
+  "my_levels": "My levels",
+  "context": "context",
+  "comments": "Comments",
+  "tomatoesNumber": "Tomatoes: ",
+
+  "upload_form": {
+    "select_map":"Select map file",
+    "select_thumb":"Select image thumbnail"
+  },
+
+  "success": {
+    "logged_in": "You have successfully logged in.",
+    "logged_out": "You have successfully logged out.",
+    "account_created": "Account has been successfully created.",
+    "level_uploaded": "Your level has been successfully uploaded. You can edit its description now.",
+    "level_removed": "Level has been successfully removed.",
+    "rated": "You have successfully rated this level. You can leave more feedback in the comments secion now.",
+    "comment_added": "You have successfully posted a comment.",
+    "comment_removed": "You have successfully removed a comment.",
+    "comment_updated": "You have successfully updated your comment.",
+    "description_updated": "You have successfully updated level's description."
+  },
+
+  "errors": {
+    "page_not_found": "Page not found.",
+    "only_for_logged_in": "You need to be logged in to view this page.",
+    "permission_denied": "You have no permission to see this page.",
+    "required_fields_not_filled": "You need to fill in all the required fields.",
+    "user_does_not_exist": "User with such name does not exist.",
+    "user_already_exists": "User with such name already exists.",
+    "already_logged_in": "You're already logged in.",
+    "not_logged_in": "You're not logged in.",
+    "incorrect_password": "Incorrect password.",
+    "incorrect_file_type": "Unsupported or damaged file.",
+    "uncompressed_map": "Only compressed WWD files are allowed!",
+    "comment_does_not_exist": "Comment with such id does not exist.",
+    "level_does_not_exist": "Level with such id does not exist.",
+    "cant_rate_own_level": "You can't rate level which You uploaded!"
+  }
+}
